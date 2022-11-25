@@ -48,7 +48,7 @@ function IamRole() {
                 map[pair[0]] = pair[1];
             }
           
-            if (map.asset_type === "compute/Instance") {
+            if (map.asset_type === "") {
               a.push(map);
         
             }

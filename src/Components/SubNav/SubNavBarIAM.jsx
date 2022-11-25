@@ -59,10 +59,9 @@ const SubNavBarIAM = () => {
     }
 
 
-const key1 = localStorage.key(1);
-      console.log("key",key1)
-       value = localStorage.getItem(key1);
-      console.log("keyyyy",value)
+
+       value = localStorage.getItem("projectid");
+      
 
 // Demo function starts
     function Demo() {
@@ -92,7 +91,7 @@ const key1 = localStorage.key(1);
                 var pair = listOfPairs[i].split(": ");
                 map[pair[0]] = pair[1];
               }
-              if (map.asset_type === "bigquery/Dataset") {
+              if (map.asset_type === "iam/Role") {
                 a.push(map);
               }
             }
