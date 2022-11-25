@@ -1,0 +1,648 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-container {
+  display: flex;
+}
+main {
+  padding: 10px;
+}
+
+.title {
+  font-size: 3rem;
+  display: grid;
+  place-items: center;
+}
+
+/* Sidebar */
+.sidebar {
+  background: #05083a;
+  color: rgb(252, 252, 252);
+  height: 100vh;
+  overflow-y: auto;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  border-radius: 10px;
+  /* line-height: 200px; */
+  margin-top: 1px;
+
+  border: 1px solid white;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+}
+.sidebar::-webkit-scrollbar {
+  display: none; /* Safari and Chrome browsers */
+}
+
+.top_section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 10px;
+}
+.logo {
+  font-size: 18px;
+  line-height: 0;
+}
+.bars {
+  width: 30px;
+}
+.hide {
+  display: none;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  height: 30px;
+  padding: 10px;
+}
+.search input {
+  border: none;
+  margin-left: 10px;
+  border-radius: 5px;
+  background: rgb(233, 229, 229);
+  color: rgb(0, 0, 0);
+}
+
+.routes {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.link {
+  display: flex;
+  color: rgb(255, 249, 249);
+  gap: 10px;
+  padding: 5px 10px;
+  border-right: 4px solid transparent;
+  transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+.link:hover {
+  border-right: 4px solid white;
+  background: rgba(197, 199, 198, 0.856);
+  transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+.active {
+  color: #092ee4;
+  border-right: 4px solid white;
+  background: rgb(206, 203, 203);
+}
+.link_text {
+  white-space: nowrap;
+  font-size: 15px;
+}
+
+.menu {
+  display: flex;
+  color: rgb(255, 253, 253);
+  padding: 5px 10px;
+  border-right: 4px solid transparent;
+  transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  justify-content: space-between;
+}
+.menu_item {
+  display: flex;
+  gap: 10px;
+}
+.menu_container {
+  display: flex;
+  flex-direction: column;
+}
+.menu_container .link {
+  padding-left: 20px;
+  border-bottom: #fff 0.5px solid;
+}
+nav ul {
+  /* border: 2px solid grey; */
+  margin-left: 80%;
+}
+nav li {
+  padding: 0% 10% 0% 10%;
+  /* border: 2px solid yellow; */
+  color: #a6acb3;
+}
+.navbar {
+  background-color: #05083a;
+  border-radius: 10px;
+  border: 1px solid white;
+  box-shadow: 2px 2px 15px rgb(226, 226, 226);
+}
+.nav-link {
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+}
+.navbar-brand {
+  color: rgb(18, 70, 243);
+  font-weight: 500;
+  font-size: 20px;
+}
+
+/*table,td {
+  border: 1px solid;
+  width: 100%;
+  padding: 15px;
+  text-align: left;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+}}*/
+
+tr:hover {
+  background-color: rgb(240, 238, 236);
+}
+tr:nth-child {
+  background-color: #f3dcdc;
+}
+
+/* subnavbar  */
+.container-md {
+  border: 2px solid #2d545e;
+  box-shadow: 2px 2px 15px #12343b;
+  border-radius: 33px;
+  padding: 2%;
+  font-size: medium;
+  width: 68rem;
+}
+
+.subNavBar button {
+  margin-right: 5%;
+}
+
+/* pagination  */
+.page-item {
+  padding: 3%;
+}
+
+.scrollContent {
+  /* background-color: lightblue; */
+  width: auto;
+  overflow-x: scroll;
+
+  /* margin-top: 2%; */
+}
+.table {
+  border: 2px solid rgb(230, 226, 226);
+  border-radius: 8px;
+}
+.head {
+  border-bottom: 3px solid rgb(223, 219, 219);
+}
+
+table,
+th {
+  border: 2px solid rgb(231, 230, 230);
+  background-color: rgb(238, 238, 238);
+  border-radius: 8px;
+  display: block;
+  width: 180rem;
+}
+
+td {
+  /* border: 2px solid blue; */
+  width: 180rem;
+  background: rgb(245, 245, 245);
+  text-align: center;
+}
+
+/* .scrollContent td{
+ float: left;
+ margin-right:90px;
+ margin-left: 40px;
+ font-weight: bold;
+  
+} */
+
+.instance-detail table {
+  border: 1px solid rgb(255, 255, 255);
+  background: rgb(238, 238, 238);
+}
+.instance-detail td {
+  /* border: 1px solid rgb(255, 255, 255); */
+  font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  /* margin-bottom:2%; */
+}
+
+.reactTable {
+  text-align: center;
+}
+.head {
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #080808;
+  background-color: rgb(233, 228, 223);
+  border-style: inset;
+}
+
+.Wrapper {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.Title {
+  margin: 0 0 var(--gutterXx) 0;
+  padding: 0;
+  color: rgb(7, 7, 7);
+  font-size: var(--fontSizeXx);
+  font-weight: 400;
+  line-height: var(--lineHeightSm);
+  text-align: center;
+  text-shadow: -0.1rem 0.1rem 0.2rem var(--colorPrimary800);
+}
+
+.Input-text {
+  display: block;
+  margin: 1px 1px 1px 1px;
+  padding: 5px;
+  width: 100%;
+  font-weight: inherit;
+  font-family: inherit;
+
+  border-color: rgb(0, 0, 0);
+  border-radius: 0.4rem;
+}
+
+.Input-text::placeholder {
+  color: #c7ccce;
+}
+
+.loginemailicon {
+  margin-left: -360px;
+  font-size: large;
+  height: 30px;
+}
+.loginpasswordicon {
+  margin-left: -330px;
+  font-size: large;
+  height: 30px;
+}
+
+
+.submit {
+  width: 300px;
+  margin-right: 850px;
+}
+.signupsubmit {
+  width: 300px;
+  margin-right: 900px;
+
+}
+.signupform {
+  margin-left: -10px;
+ 
+}
+
+.signupaccount {
+  margin-left: -500px;
+}
+
+.signupheading {
+  margin-left: -30px;
+
+}
+
+.singupcheckbox {
+float:left;
+margin-left: -229px;
+  width: 800px;
+  padding-bottom: 15px;
+}
+
+.loginheading {
+  margin-left: -20px;
+}
+
+.redirecttologin{
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 33px;
+  background-color: #05083a;
+  padding: 5px;
+}
+.account {
+  padding-right: 850px;
+  color: black;
+}
+.backImage {
+  background-size: 100%;
+  width: 100%;
+  height: 88vh;
+  border-radius: 25px;
+  border: 1px solid white;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.Heading {
+  color: white;
+  padding: 5px;
+}
+.rowcontent {
+  padding: 10px;
+  /* border: 1px solid red; */
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+.cardheader {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+  font-size: large;
+  background-color: #051257;
+}
+
+.submitlogout {
+  border: 1px solid white;
+  margin-right: -140px;
+}
+
+.form-check-input {
+  border: 2px solid rgb(190, 181, 181);
+}
+.Gservices {
+  font-size: 25px;
+  padding-left: 20px;
+}
+
+
+/* .dropdown {
+  background-color: #e4e3e6;
+  border: 2px solid rgb(243, 233, 233);
+  border-radius: 10px;
+
+  
+} */
+
+.profileheader {
+  border: 1px solid rgb(255, 255, 255);
+  background-color: #05083a;
+  width: 90px;
+  height: 39px;
+  border-radius: 10px;
+ 
+  
+}
+#collasible-nav-dropdown{
+  color :white;
+  font-weight: 500;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size:15px;
+
+}
+
+
+
+.billingnote {
+  padding-right: 880px;
+  color:tomato;
+  text-decoration: underline;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.BillingGraph {
+  padding-left: -5px;
+  padding-top: 5px;
+}
+
+.details {
+  
+  margin: 5px;
+}
+
+.card-header {
+  font-family: "Times New Roman", Times, serif;
+  font-size: large;
+}
+
+.billing {
+  margin-top: 35px;
+  border: 2px solid rgb(8, 12, 133);
+  box-shadow: 2px 2px 15px rgb(57, 30, 154);
+  width: 800px;
+  padding: 10px;
+  float: left;
+  margin-right: 10px;
+  /* border-radius: 10px; */
+}
+
+.resources {
+  margin-top: 15px;
+  margin-left: 30px;
+  width: 400px;
+ 
+  padding: 10px;
+
+  float: left;
+}
+
+.Documentation {
+  margin-top: 30px;
+  border: 2px solid rgb(8, 12, 133);
+  box-shadow: 2px 2px 15px rgb(57, 30, 154);
+  width: 400px;
+  padding: 10px;
+  float: right;
+}
+
+.Documentation > p {
+  padding: 2px;
+  border: 2px solid red;
+}
+
+.chart-detail {
+  border: 2px solid rgb(8, 12, 133);
+  box-shadow: 2px 2px 15px rgb(57, 30, 154);
+  float: left;
+  margin-top: 50px;
+  width: 800px;
+  padding: 2%;
+}
+
+.card-body1 {
+  width: 700px;
+}
+
+.flip-card {
+  /* border: 2px solid red; */
+  margin-left: 18px;
+  margin-bottom: 8px;
+  background-color: transparent;
+  width: 300px;
+  height: 30px;
+
+  /* border: 1px solid #f1f1f1; */
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: rgb(34, 62, 221);
+  color: rgb(255, 255, 255);
+  font-family: "Times New Roman", Times, serif;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: #020f58;
+  color: white;
+  transform: rotateY(180deg);
+  font-family: "Times New Roman", Times, serif;
+}
+
+.resources1 {
+  margin-top: 25px;
+  margin-left: 20px;
+  width: 650px;
+  float: left;
+  font-family: "Times New Roman", Times, serif;
+ 
+}
+
+.resourcename {
+  padding-right: 400px;
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.resourcelist {
+  text-align: left;
+  font-size: 20px;
+}
+.resourcename a {
+  text-decoration: none;
+}
+
+.dropdown1 {
+  background-color: rgb(4, 31, 83);
+  border-radius: 33px;
+  width: 150px;
+  height: 22px;
+}
+
+.accountchange {
+  width: 700px;
+  margin-top: 45px;
+  margin-left: 180px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  border: 2px solid #12343b;
+  box-shadow: 2px 2px 15px #2d545e;
+  border-radius: 22px;
+  color: rgb(0, 0, 0);
+  padding: 5px;
+}
+
+.mylable {
+  width: 200px;
+}
+.note {
+  font-weight: 400;
+}
+.value1 {
+  font-weight: 510;
+  text-decoration: underline;
+}
+
+/* .accountcard{
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+  border-style: solid;
+} */
+
+.settingsubmit {
+  margin-top: 10px;
+  border: 2px solid rgb(255, 255, 255);
+  background-color: #05083a;
+  color: white;
+}
+.settingsubmit:hover{
+  color: #05083a;
+}
+
+.projectidSettings {
+  padding-right: 1000px;
+}
+.calculator {
+  border: 1px solid rgb(255, 255, 255);
+  width: 250px;
+  height: 100px;
+  background-color: rgb(254, 254, 255);
+}
+
+
+
+.billingcard{
+  border: 2px solid rgb(230, 227, 227);
+  width: 1100px;
+}
+.billingcardbody{
+  text-align: justify;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+  
+  
+}
+
+.billingsettingform{
+  width: 700px;
+  margin-top: 15px;
+  margin-left: 180px;
+  font-weight: 700;
+  border: 2px solid  #234E70;
+  box-shadow: 2px 2px 15px  #234E70;
+  border-radius: 22px;
+  color: rgb(0, 0, 0);
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.billingsettingsubmitbtn{
+  background-color:#234E70 ;
+  color: white;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 2px solid white;
+  border-radius: 10px;
+  
+}
+.note1{
+  width: 1090px;
+
+  margin-left: 10px;
+  text-align: justify;
+  padding: 5px;
+}
