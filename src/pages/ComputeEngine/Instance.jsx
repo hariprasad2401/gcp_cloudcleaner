@@ -160,7 +160,7 @@ function Instance() {
       /> 
         <div className="my-content">
           <div>
-            <h2>Instance</h2>
+            <h2> Compute Instance</h2>
           </div>
           <div className="container-md">
             <SubNavBar />
