@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import "../../Components/SubNav/SubNavBarBucket";
-import SubNavBarBucket from "../../Components/SubNav/SubNavBarBucket";
+import "../../Components/SubNav/SubNavBarStorage";
+import SubNavBarStorage from "../../Components/SubNav/SubNavBarStorage";
 import Pagination from "../../Components/SubPagination/Pagination";
 import Snackbar from "@material-ui/core/Snackbar";
 import "../../Style.scss";
+
 let PageSize = 3;
 var f4 = [];
 var f5 = [];
@@ -160,7 +161,7 @@ function Bucket() {
             <h2>Bucket</h2>
           </div>
           <div className="container-md">
-            <SubNavBarBucket />
+            <SubNavBarStorage />
             <br />
             <div className="row">
               <div className="col-md-12">

@@ -54,7 +54,7 @@ const SubNavBarDisk = () => {
         })
         .then((result) => {
           text = result;
-          console.log("msg:", text);
+          console.log("msg::", text);
           console.warn("warn:", result);
         })
         .catch((error) => {
