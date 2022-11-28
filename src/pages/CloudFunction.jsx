@@ -160,7 +160,7 @@ function CloudFunction() {
       /> 
         <div className="my-content">
           <div>
-            <h2>Cloud Function</h2>
+            <h2>CloudFunction</h2>
           </div>
           <div className="container-md">
             <SubNavBarCloudfunction />
