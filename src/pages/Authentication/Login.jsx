@@ -25,6 +25,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState(false);
   const [projectid, setprojectid] = useState([]);
+  const [text,settext]=useState("Submit")
 
   const navigate = useNavigate();
 
@@ -44,21 +45,22 @@ const Login = () => {
         setLogin(true);
         localStorage.setItem(id4,email);
 
-        //navigate("/AllFilesHandler/Dashboard");
-        console.log("ress", result);
+   
       })
       .catch((error) => {
         error = new Error();
+        alert("Incorrect username/password")
+        window.location.reload(false)
       });
 
-    // localStorage.setItem(id,projectid.projectid)
+      settext("Submitting.....")
   };
 
   if (login === true) {
     //Project id push to localstorage
 
     const proid = async () => {
-      //localStorage.removeItem("projectid")
+   
       const other = await axios("https://databasegateway-6rbq08w.ue.gateway.dev/mgdb/project,"+JSON.stringify(email).replaceAll('"',''), {
         method: "GET",
       }).then((response) => {
@@ -169,7 +171,7 @@ const Login = () => {
                 style={{ background: "#100C46" }}
                 type="submit"
               >
-                Submit
+                {text}
               </Button>
               <br />
             </Form>

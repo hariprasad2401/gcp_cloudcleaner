@@ -9,14 +9,13 @@ import { TbCodeMinus, TbMapSearch } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "../Style.scss";
-
+var value1 = "";
 var value2 = "";
 var value3 = "";
 var value4 = "";
 
 function Dashboard() {
-  
-  
+  value1 = localStorage.getItem("projectid");
   value2 = localStorage.getItem("exportprojectid");
   value3 = localStorage.getItem("datasetid");
   value4 = localStorage.getItem("tableid");
@@ -24,32 +23,38 @@ function Dashboard() {
   var [getuserdata, setUserdata] = useState([]);
 
   useEffect(() => {
+ 
     names();
   }, []);
-  console.log("");
+
   const names = async () => {
-    if(value3!=="null"){
-    const response = await fetch(
-      "https://bill-6rbq08w.wl.gateway.dev/bill/" +
-        JSON.stringify(value3).replaceAll('"', "") +
-        "," +
-        JSON.stringify(value4).replaceAll('"', "") +
-        "," +
-        JSON.stringify(value2).replaceAll('"', "")
-    );
-    const d = await response.text();
-    const data = d.split("\n");
-    setUserdata(data);
-    console.log("ds", data);
+
+    if (value3 !== "null" && value1 !== "null" && value2 !== "null") {
+    
+      const response = await fetch(
+        "https://bill-6rbq08w.wl.gateway.dev/bill/" +
+          JSON.stringify(value3).replaceAll('"', "") +
+          "," +
+          JSON.stringify(value4).replaceAll('"', "") +
+          "," +
+          JSON.stringify(value2).replaceAll('"', "") +
+          "," +
+          JSON.stringify(value1).replaceAll('"', "")
+      );
+      const d = await response.text();
+      const data = d.split("\n");
+      setUserdata(data);
+      console.log("ds", data);
+    }
   };
-}
   console.log("////", getuserdata);
 
   return (
     <>
       <div className="card note1">
         <p>
-          If you have already configured billing and yet data is not visible, then please cross check your <span> </span>
+          If you have already configured billing and yet data is not visible,
+          then please cross check your <span> </span>
           <Link
             style={{
               textDecoration: "none",
@@ -62,7 +67,6 @@ function Dashboard() {
           >
             Billing settings
           </Link>{" "}
-         
         </p>
       </div>
       <div className="BillingGraph">
@@ -70,7 +74,6 @@ function Dashboard() {
           <div className="card">
             <div className="card-header">
               <h5>Resources Billing Details</h5>
-
             </div>
             <div>
               <h6 className="billingnote"> Weekly Billing Details</h6>
