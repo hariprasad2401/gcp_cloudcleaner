@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "../../Components/SubNav/SubNavBarCloudfunction";
-import SubNavBarCloudfunction from "../../Components/SubNav/SubNavBarCloudfunction";
-import Pagination from "../../Components/SubPagination/Pagination";
+import "../Components/SubNav/SubNavBarCloudfunction";
+import SubNavBarCloudfunction from "../Components/SubNav/SubNavBarCloudfunction";
+import Pagination from "../Components/SubPagination/Pagination";
 import Snackbar from "@material-ui/core/Snackbar";
-import "../../Style.scss";
+import "../Style.scss";
 
 
 
