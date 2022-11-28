@@ -57,12 +57,7 @@ const SubNavBarIAM = () => {
           console.warn("warn:", result);
         });
     }
-
-
-
-       value = localStorage.getItem("projectid");
-      
-
+value = localStorage.getItem("projectid");
 // Demo function starts
     function Demo() {
       //count++

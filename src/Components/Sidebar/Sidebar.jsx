@@ -201,7 +201,7 @@ const routes = [
   },
   {
     path: "/AllFilesHandler/Settings",
-    name: "Settings",
+    name: "Project Settings",
     icon: <FiSettings/>,
   },
   {
