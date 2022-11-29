@@ -123,7 +123,9 @@ const Login = () => {
               style={{ color: "#051257" }}
             >
               Login{" "}
+
             </h3>
+         
             <Form onSubmit={HandleClick}>
               <Form.Group className="mb-3 col-lg-4" controlId="formBasicEmail">
                 <div className="loginemailicon">
@@ -164,7 +166,7 @@ const Login = () => {
                   " "
                 )}
               </Form.Group>
-
+              <br/>
               <Button
                 variant="primary"
                 className="submit"

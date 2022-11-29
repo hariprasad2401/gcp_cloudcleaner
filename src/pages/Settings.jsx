@@ -100,7 +100,7 @@ const Saved = () => {
       aria-labelledby="contained-modal-title-vcenter"
       centered >
         <Modal.Header closeButton onHide={handleClose}>
-          <Modal.Title>Notification.</Modal.Title>
+          <Modal.Title>Update Info.</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="wrapper">
