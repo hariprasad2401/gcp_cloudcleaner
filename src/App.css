@@ -641,8 +641,17 @@ margin-left: -229px;
 }
 .note1{
   width: 1090px;
-
   margin-left: 10px;
   text-align: justify;
   padding: 5px;
+}
+
+.note2{
+  border: 1px solid #2d545e;
+  font-size:large;
+  font-weight:500;
+  width: 1090px;
+  text-align: justify;
+  padding-left: 15px;
+  border-radius: 15px;
 }

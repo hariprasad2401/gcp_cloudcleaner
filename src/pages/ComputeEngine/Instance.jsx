@@ -184,6 +184,7 @@ function Instance() {
                         <td>Name</td>
                         <td>Location</td>
                         <td>private_ip</td>
+                        <td>public_ip</td>
                       </tr>
                     </thead>
                     <tbody>
@@ -205,6 +206,7 @@ function Instance() {
                           <td>{userrecords.name}</td>
                           <td>{userrecords.location}</td>
                           <td>{userrecords.private_ip}</td>
+                          <td>{userrecords.public_ip}</td>
                         </tr>
                       ))}
                     </tbody>

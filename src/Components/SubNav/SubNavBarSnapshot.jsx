@@ -91,7 +91,7 @@ const SubNavBarSnapshot = () => {
                 var pair = listOfPairs[i].split(": ");
                 map[pair[0]] = pair[1];
               }
-              if (map.asset_type === "compute/Instance") {
+              if (map.asset_type === "compute/Snapshot") {
                 a.push(map);
               }
             }

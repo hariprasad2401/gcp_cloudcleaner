@@ -22,14 +22,15 @@ function VPC() {
       setloading(true)
 
       // projectid
-      const key1 = localStorage.key(1);
-      console.log("key",key1)
-       value = localStorage.getItem(key1);
-      console.log("keyyyy",value)
+   
+       value = localStorage.getItem("projectid");
+    
       const resData = await fetch(
-        "https://list-delete-gateway-6rbq08w.uc.gateway.dev/print/"+JSON.stringify(value).replaceAll('"',''),
+         "https://list-delete-gateway-6rbq08w.uc.gateway.dev/print/"+JSON.stringify(value).replaceAll('"',''),
+      
         {
           method: "GET",
+      
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
@@ -182,7 +183,7 @@ function VPC() {
                         <td>Sr.No</td>
                         <td>Name</td>
                         <td>Location</td>
-                       
+                      
                       </tr>
                     </thead>
                     <tbody>
@@ -203,7 +204,7 @@ function VPC() {
                           <td>{index + 1} </td>
                           <td>{userrecords.name}</td>
                           <td>{userrecords.location}</td>
-                         
+                   
                         </tr>
                       ))}
                     </tbody>

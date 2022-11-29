@@ -12,6 +12,7 @@ var value="";
 const SubNavBarStorage = () => {
   const [show, setShow] = useState(false);
   const [open, setOpen] = useState(false);
+  const [error, seterror] = useState(false);
   const [link, setlink] = useState(false);
   const [delerror, setdelerror] = useState(false);
   const [input, setinput] = useState("");
@@ -55,7 +56,16 @@ const SubNavBarStorage = () => {
           text = result;
           console.log("msg:", text);
           console.warn("warn:", result);
-        });
+        })
+        .catch((error)=>{
+          error=new Error;
+          setOpen(false)
+          seterror(true)
+          setTimeout(() => {
+            window.location.reload(false);
+          }, 3000);
+
+        })
     }
 
 
@@ -129,6 +139,7 @@ const SubNavBarStorage = () => {
   }
   const handletoclose = () => {
     setlink(false);
+    seterror(false)
   };
 
   // console.log("test", input);
@@ -222,7 +233,40 @@ const SubNavBarStorage = () => {
           </div>
         }
       /> 
-     
+<Snackbar
+        anchorOrigin={{
+          horizontal: "center",
+          vertical: "bottom",
+        }}
+       // bodyStyle={{ height: 200, width: 200, flexGrow: 0 }}
+       style={{
+        width: "auto",
+        color: "secondary",
+      }}
+        open={error}
+        // autoHideDuration={60000}
+        message="Error deleting the resources!!!!"
+        onClose={handleToClose}
+        fontSize="large"
+        action={
+          <div>
+           
+            <IconButton size="small" aria-label="loading" color="inherit">
+              <AutorenewIcon fontSize="small" />
+            </IconButton>
+            <IconButton
+              size="small"
+              aria-label="close"
+              color="inherit"
+              onClick={handleToClose}
+           
+            >
+              <CloseIcon fontSize="medium" />
+            </IconButton>
+          </div>
+        }
+      /> 
+
       <Snackbar open={link} autoHideDuration={6000} onClose={handletoclose}>
         <Alert
           className="alert"
@@ -245,17 +289,6 @@ const SubNavBarStorage = () => {
       <div className="subNavBar">
         <nav className="navbar navbar-expand-lg bg-light">
           <div className="container-fluid">
-            {/* <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Go
-              </button>
-            </form> */}
             <button
               className="navbar-toggler"
               type="button"

@@ -89,7 +89,7 @@ const SubNavBarIAM = () => {
                 var pair = listOfPairs[i].split(": ");
                 map[pair[0]] = pair[1];
               }
-              if (map.asset_type === "bigquery/Dataset") {
+              if (map.asset_type === "iam/Role") {
                 a.push(map);
               }
             }

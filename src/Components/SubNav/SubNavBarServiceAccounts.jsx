@@ -9,7 +9,7 @@ import Alert from "@mui/material/Alert"
 import { useState } from "react";
 var text = "";
 var value="";
-const SubNavBarServiceAccount = () => {
+const SubNavBarServiceAccounts = () => {
   const [show, setShow] = useState(false);
   const [open, setOpen] = useState(false);
   const [link, setlink] = useState(false);
@@ -59,7 +59,10 @@ const SubNavBarServiceAccount = () => {
     }
 
 
-    value = localStorage.getItem("projectid");
+
+       value = localStorage.getItem("projectid");
+      
+
 // Demo function starts
     function Demo() {
       //count++
@@ -296,4 +299,4 @@ const SubNavBarServiceAccount = () => {
     </>
   );
 };
-export default SubNavBarServiceAccount;
+export default SubNavBarServiceAccounts;

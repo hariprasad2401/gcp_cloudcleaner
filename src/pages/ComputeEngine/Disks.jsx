@@ -148,7 +148,8 @@ function Disk() {
 
   return (
     <>
-     
+        
+   
       <React.Fragment>
       <Snackbar
         anchorOrigin={{
@@ -232,6 +233,13 @@ function Disk() {
             />
           </div>
         </div>
+        <br/>
+        <div className="card note2">
+        <p>
+       * Disks attached to instances cannot be deleted
+        
+        </p>
+      </div>
       </React.Fragment>
     </>
   );

@@ -65,7 +65,7 @@ const routes = [
   
   {
     path: "/AllFilesHandler/Kubernates",
-    name: "Kubernates",
+    name: "Kubernetes",
     icon: <SiKubernetes />,
   },
   {

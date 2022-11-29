@@ -1,35 +1,35 @@
 import React, { useState, useEffect } from "react";
 import "../../Components/SubNav/SubNavBarServiceAccounts";
-import SubNavBarServiceAccount from "../../Components/SubNav/SubNavBarServiceAccounts";
+import SubNavBarServiceAccounts from "../../Components/SubNav/SubNavBarServiceAccounts";
 import Pagination from "../../Components/SubPagination/Pagination";
 import Snackbar from "@material-ui/core/Snackbar";
 import "../../Style.scss";
 
-
-
 let PageSize = 3;
 var f4 = [];
 var f5 = [];
-var value=""
-function ServiceAccounts() {
+var value = "";
+function ServiceAccount() {
   const [getuserdata, setUserdata] = useState([]);
   const [list, setList] = useState([]);
   const [MasterChecked, setMasterCheck] = useState(false);
   const [loading, setloading] = useState(false);
-  
+
   useEffect(() => {
     const getUser = async () => {
-      setloading(true)
+      setloading(true);
 
       // projectid
-      const key1 = localStorage.key(1);
-      console.log("key",key1)
-       value = localStorage.getItem(key1);
-      console.log("keyyyy",value)
+
+      value = localStorage.getItem("projectid");
+
       const resData = await fetch(
-        "https://list-delete-gateway-6rbq08w.uc.gateway.dev/print/"+JSON.stringify(value).replaceAll('"',''),
+        "https://list-delete-gateway-6rbq08w.uc.gateway.dev/print/" +
+          JSON.stringify(value).replaceAll('"', ""),
+
         {
           method: "GET",
+
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
@@ -44,31 +44,29 @@ function ServiceAccounts() {
             var map = {};
             var listOfPairs = test[j].split("\n");
             for (var i = 0; i < listOfPairs.length; i++) {
-                var pair = listOfPairs[i].split(": ");
-                map[pair[0]] = pair[1];
+              var pair = listOfPairs[i].split(": ");
+              map[pair[0]] = pair[1];
             }
-          
+
             if (map.asset_type === "iam/ServiceAccount") {
               a.push(map);
-        
             }
           }
           return a;
         });
 
       setUserdata(resData);
-      setloading(false)
+      setloading(false);
     };
     getUser();
   }, []);
 
   f5 = getuserdata;
-  console.log("f5",f5)
+  console.log("f5", f5);
   const [currentPage, setCurrentPage] = useState(1);
   const firstPageIndex = (currentPage - 1) * PageSize;
   const lastPageIndex = firstPageIndex + PageSize;
   const currentTableData = getuserdata.slice(firstPageIndex, lastPageIndex);
-
 
   // Select/ UnSelect Table rows
   let onMasterCheck = (e) => {
@@ -123,12 +121,12 @@ function ServiceAccounts() {
       "https://list-delete-gateway-6rbq08w.uc.gateway.dev/p" +
       "/" +
       d1["name"] +
-      "," +
-      d2["location"].trim() +
-      "," +
-      d3["asset_type"].replace("/", "-") +
-      "," +
-      JSON.stringify(value).replaceAll('"','');
+      // "," +
+      // d2["location"].trim() +
+      // "," +
+      // d3["asset_type"].replace("/", "-") +
+      // "," +
+      JSON.stringify(value).replaceAll('"', "");
     console.log("yyy", f2);
     f4.push(f2);
     //f4=f5;
@@ -137,32 +135,27 @@ function ServiceAccounts() {
 
   return (
     <>
-     
       <React.Fragment>
-      <Snackbar
-        anchorOrigin={{
-          horizontal: "center",
-          vertical: "bottom",
-        }}
-      
-       sx={{
-        width: "auto",
-        color: "secondary",
-      }}
-        open={loading}
-        autoHideDuration={3000}
-        message="Data is Loading, Please Wait....."
-        fontSize="large"
-
-  
-        
-      /> 
+        <Snackbar
+          anchorOrigin={{
+            horizontal: "center",
+            vertical: "bottom",
+          }}
+          sx={{
+            width: "auto",
+            color: "secondary",
+          }}
+          open={loading}
+          autoHideDuration={3000}
+          message="Data is Loading, Please Wait....."
+          fontSize="large"
+        />
         <div className="my-content">
           <div>
-            <h2>Service Account</h2>
+            <h2>Service Accounts</h2>
           </div>
           <div className="container-md">
-            <SubNavBarServiceAccount />
+            <SubNavBarServiceAccounts />
             <br />
             <div className="row">
               <div className="col-md-12">
@@ -221,6 +214,6 @@ function ServiceAccounts() {
     </>
   );
 }
-export default ServiceAccounts;
+export default ServiceAccount;
 export { f4 };
 export { f5 };

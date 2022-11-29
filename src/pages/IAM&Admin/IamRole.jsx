@@ -48,7 +48,7 @@ function IamRole() {
                 map[pair[0]] = pair[1];
             }
           
-            if (map.asset_type === "") {
+            if (map.asset_type === "iam/Role") {
               a.push(map);
         
             }
@@ -123,11 +123,11 @@ function IamRole() {
       "https://list-delete-gateway-6rbq08w.uc.gateway.dev/p" +
       "/" +
       d1["name"] +
-      "," +
-      d2["location"].trim() +
-      "," +
-      d3["asset_type"].replace("/", "-") +
-      "," +
+      // "," +
+      // d2["location"].trim() +
+      // "," +
+      // d3["asset_type"].replace("/", "-") +
+      // "," +
       JSON.stringify(value).replaceAll('"','');
     console.log("yyy", f2);
     f4.push(f2);
