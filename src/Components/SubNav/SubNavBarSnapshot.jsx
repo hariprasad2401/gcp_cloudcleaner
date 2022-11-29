@@ -7,13 +7,15 @@ import CloseIcon from "@material-ui/icons/Close";
 import AutorenewIcon from "@material-ui/icons/Autorenew";
 import Alert from "@mui/material/Alert"
 import { useState } from "react";
-
 var text = "";
+var value="";
 const SubNavBarSnapshot = () => {
   const [show, setShow] = useState(false);
   const [open, setOpen] = useState(false);
   const [link, setlink] = useState(false);
+  const [delerror, setdelerror] = useState(false);
   const [input, setinput] = useState("");
+ 
 
   function getUnique(array) {
     var uniqueArray = [];
@@ -56,13 +58,18 @@ const SubNavBarSnapshot = () => {
         });
     }
 
-// Demo function starts
 
+
+       value = localStorage.getItem("projectid");
+      
+
+// Demo function starts
     function Demo() {
       //count++
       const getUser = async () => {
+     
         const resData = await fetch(
-          "https://resource-manager-6rbq08w.uc.gateway.dev/print/cloudcleaner-365806",
+          "https://list-delete-gateway-6rbq08w.uc.gateway.dev/print/"+JSON.stringify(value).replaceAll('"',''),
           {
             method: "GET",
             headers: {
@@ -84,7 +91,7 @@ const SubNavBarSnapshot = () => {
                 var pair = listOfPairs[i].split(": ");
                 map[pair[0]] = pair[1];
               }
-              if (map.asset_type === "compute/Snapshot") {
+              if (map.asset_type === "compute/Instance") {
                 a.push(map);
               }
             }
@@ -105,7 +112,9 @@ const SubNavBarSnapshot = () => {
     if (text === "Success") {
         Demo();
     }
+
   }
+
   const handleToClose = (event, reason) => {
     if ("clickaway" === reason) return;
     setOpen(false);
@@ -144,6 +153,9 @@ const SubNavBarSnapshot = () => {
 
   }   
 
+  function refreshPage(){
+    window.location.reload(false);
+  }
   return (
     <>
       <Modal show={show} onHide={handleClick}>
@@ -178,6 +190,8 @@ const SubNavBarSnapshot = () => {
         </Modal.Footer>
       </Modal>
 
+     
+
        <Snackbar
         anchorOrigin={{
           horizontal: "center",
@@ -211,22 +225,7 @@ const SubNavBarSnapshot = () => {
           </div>
         }
       /> 
-      {/* <Snackbar open={open} autoHideDuration={50000} onClose={handleToClose}>
-        <Alert
-          className="alert"
-          onClose={handleToClose}
-          severity="info"
-          sx={{
-            width: "500px",
-            backgroundColor: "black",
-            color: "white",
-            fontSize: "large",
-            fontFamily: "inherit",
-          }}
-        >
-          Started Deleting. . . . . . .
-        </Alert>
-      </Snackbar> */}
+     
       <Snackbar open={link} autoHideDuration={6000} onClose={handletoclose}>
         <Alert
           className="alert"
@@ -243,10 +242,13 @@ const SubNavBarSnapshot = () => {
           <strong>Successfully Deleted!!</strong>
         </Alert>
       </Snackbar>
+
+   
+
       <div className="subNavBar">
         <nav className="navbar navbar-expand-lg bg-light">
           <div className="container-fluid">
-            <form className="d-flex" role="search">
+            {/* <form className="d-flex" role="search">
               <input
                 className="form-control me-2"
                 type="search"
@@ -256,7 +258,7 @@ const SubNavBarSnapshot = () => {
               <button className="btn btn-outline-success" type="submit">
                 Go
               </button>
-            </form>
+            </form> */}
             <button
               className="navbar-toggler"
               type="button"
@@ -273,12 +275,13 @@ const SubNavBarSnapshot = () => {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                {/* <div>
+              <div>
       <button onClick={refreshPage} className="btn btn-primary">Refresh</button>
-    </div>
-         */}
+    </div> 
+             
+         
                 <li className="nav-item">
-                  <button
+           <button
                     data-toggle="Modal"
                     data-target="#exampleModal"
                     onClick={() => callingdelete()}

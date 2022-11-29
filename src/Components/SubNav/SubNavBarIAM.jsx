@@ -57,7 +57,10 @@ const SubNavBarIAM = () => {
           console.warn("warn:", result);
         });
     }
-value = localStorage.getItem("projectid");
+
+
+
+      value = localStorage.getItem("projectid");
 // Demo function starts
     function Demo() {
       //count++
@@ -86,7 +89,7 @@ value = localStorage.getItem("projectid");
                 var pair = listOfPairs[i].split(": ");
                 map[pair[0]] = pair[1];
               }
-              if (map.asset_type === "iam/Role") {
+              if (map.asset_type === "bigquery/Dataset") {
                 a.push(map);
               }
             }

@@ -25,7 +25,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState(false);
   const [projectid, setprojectid] = useState([]);
-  const [text,settext]=useState("Submit")
+  const [text,settext]=useState("Login")
 
   const navigate = useNavigate();
 
@@ -53,7 +53,7 @@ const Login = () => {
         window.location.reload(false)
       });
 
-      settext("Submitting.....")
+      settext("Logging.....")
   };
 
   if (login === true) {

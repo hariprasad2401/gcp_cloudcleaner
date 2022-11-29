@@ -65,6 +65,7 @@ const key1 = localStorage.key(1);
       console.log("keyyyy",value)
 
 // Demo function starts
+value = localStorage.getItem("projectid");
     function Demo() {
       //count++
       const getUser = async () => {

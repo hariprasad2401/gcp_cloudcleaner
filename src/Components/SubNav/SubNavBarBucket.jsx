@@ -9,6 +9,7 @@ import Alert from "@mui/material/Alert"
 import { useState } from "react";
 
 var text = "";
+var value=""
 const SubNavBarBucket = () => {
   const [show, setShow] = useState(false);
   const [open, setOpen] = useState(false);
@@ -50,19 +51,24 @@ const SubNavBarBucket = () => {
         .then((res) => res.text())
         .then((result) => {
           //  result =  result.json();
+          
           text = result;
           console.log("msg:", text);
           console.warn("warn:", result);
+
+          if(text==="Success"){
+            
+          }
         });
     }
 
 // Demo function starts
-
+value = localStorage.getItem("projectid");
     function Demo() {
       //count++
       const getUser = async () => {
         const resData = await fetch(
-          "https://resource-manager-6rbq08w.uc.gateway.dev/print/cloudcleaner-365806",
+          "https://list-delete-gateway-6rbq08w.uc.gateway.dev/print/"+JSON.stringify(value).replaceAll('"',''),
           {
             method: "GET",
             headers: {
@@ -104,6 +110,9 @@ const SubNavBarBucket = () => {
     }
     if (text === "Success") {
         Demo();
+    }
+    else{
+      alert("error")
     }
   }
   const handleToClose = (event, reason) => {

@@ -173,7 +173,7 @@ alert("Password Doesn't Match...")
                 style={{ background: "#100C46" }}
                 type="submit"
               >
-                Submit
+                SignUp
               </Button>
             </Form>
             <br />

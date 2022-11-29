@@ -59,11 +59,7 @@ const SubNavBarServiceAccount = () => {
     }
 
 
-const key1 = localStorage.key(1);
-      console.log("key",key1)
-       value = localStorage.getItem(key1);
-      console.log("keyyyy",value)
-
+    value = localStorage.getItem("projectid");
 // Demo function starts
     function Demo() {
       //count++

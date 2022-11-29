@@ -12,7 +12,7 @@ import AlertTitle from "@mui/material/AlertTitle";
 import { useState } from "react";
 //var count = 0;
 var text = "";
-
+var value=""
 const SubNavBar = () => {
   const [show, setShow] = useState(false);
   const [open, setOpen] = useState(false);
@@ -64,12 +64,12 @@ const SubNavBar = () => {
     console.log("ani", text);
 
 // Demo function starts
-
+value = localStorage.getItem("projectid");
     function Demo() {
       //count++
       const getUser = async () => {
         const resData = await fetch(
-          "https://resource-manager-6rbq08w.uc.gateway.dev/print/cloudcleaner-365806",
+          "https://list-delete-gateway-6rbq08w.uc.gateway.dev/print/"+JSON.stringify(value).replaceAll('"',''),
           {
             method: "GET",
             headers: {
