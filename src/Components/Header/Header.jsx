@@ -21,7 +21,9 @@ export default function Header() {
   value1 = localStorage.getItem("projectid");
 
   const [file, setFile] = useState();
+
   const navigate = useNavigate();
+  
   function handlelogout() {
     navigate("/");
   }

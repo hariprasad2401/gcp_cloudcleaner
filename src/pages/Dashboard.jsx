@@ -19,8 +19,15 @@ function Dashboard() {
   value2 = localStorage.getItem("exportprojectid");
   value3 = localStorage.getItem("datasetid");
   value4 = localStorage.getItem("tableid");
-
   var [getuserdata, setUserdata] = useState([]);
+
+  console.log("header",typeof(JSON.stringify(value1)))
+  if(JSON.stringify(value1)==="null"){
+    setTimeout(()=>{
+      window.location.reload(false)
+    },500)
+  }
+
 
   useEffect(() => {
  
@@ -29,6 +36,7 @@ function Dashboard() {
 
   const names = async () => {
 
+    
     if (value3 !== "null" && value1 !== "null" && value2 !== "null") {
     
       const response = await fetch(
