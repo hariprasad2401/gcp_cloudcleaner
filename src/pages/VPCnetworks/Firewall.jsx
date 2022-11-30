@@ -21,10 +21,7 @@ function Firewall() {
       setloading(true)
 
       // projectid
-      const key1 = localStorage.key(1);
-      console.log("key",key1)
-       value = localStorage.getItem(key1);
-      console.log("keyyyy",value)
+      value = localStorage.getItem("projectid");
       const resData = await fetch(
         "https://list-delete-gateway-6rbq08w.uc.gateway.dev/print/"+JSON.stringify(value).replaceAll('"',''),
         {

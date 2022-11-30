@@ -53,7 +53,7 @@ const Login = () => {
         window.location.reload(false)
       });
 
-      settext("Logging.....")
+      settext("Logging in.....")
   };
 
   if (login === true) {
