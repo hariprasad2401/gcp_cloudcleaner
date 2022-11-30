@@ -22,14 +22,15 @@ function Subscription() {
       setloading(true)
 
       // projectid
-      const key1 = localStorage.key(1);
-      console.log("key",key1)
-       value = localStorage.getItem(key1);
-      console.log("keyyyy",value)
+   
+       value = localStorage.getItem("projectid");
+    
       const resData = await fetch(
-        "https://list-delete-gateway-6rbq08w.uc.gateway.dev/print/"+JSON.stringify(value).replaceAll('"',''),
+         "https://list-delete-gateway-6rbq08w.uc.gateway.dev/print/"+JSON.stringify(value).replaceAll('"',''),
+      
         {
           method: "GET",
+      
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
@@ -48,7 +49,7 @@ function Subscription() {
                 map[pair[0]] = pair[1];
             }
           
-            if (map.asset_type === "compute/Subscription") {
+            if (map.asset_type === "pubsub/Subscription") {
               a.push(map);
         
             }
@@ -182,6 +183,7 @@ function Subscription() {
                         <td>Sr.No</td>
                         <td>Name</td>
                         <td>Location</td>
+                       
                       </tr>
                     </thead>
                     <tbody>
@@ -202,7 +204,7 @@ function Subscription() {
                           <td>{index + 1} </td>
                           <td>{userrecords.name}</td>
                           <td>{userrecords.location}</td>
-                 
+                        
                         </tr>
                       ))}
                     </tbody>

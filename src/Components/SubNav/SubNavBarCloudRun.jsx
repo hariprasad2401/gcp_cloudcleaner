@@ -1,4 +1,4 @@
-import { f4, f5 } from "../../pages/PubSub/Topic";
+import { f4, f5 } from "../../pages/CloudRun";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import IconButton from "@material-ui/core/IconButton";
@@ -9,7 +9,7 @@ import Alert from "@mui/material/Alert"
 import { useState } from "react";
 var text = "";
 var value="";
-const SubNavBarTopic = () => {
+const SubNavBarCloudRun = () => {
   const [show, setShow] = useState(false);
   const [open, setOpen] = useState(false);
   const [link, setlink] = useState(false);
@@ -91,12 +91,15 @@ const SubNavBarTopic = () => {
                 var pair = listOfPairs[i].split(": ");
                 map[pair[0]] = pair[1];
               }
-              if (map.asset_type === "pubsub/Topic") {
+              if (map.asset_type === "run/Service") {
                 a.push(map);
               }
             }
             if (a.length === f5.length) {
-                   Demo();
+              setTimeout(()=>{
+
+                Demo();
+              },3000)
             }
              else {
                 setOpen(false);
@@ -289,4 +292,4 @@ const SubNavBarTopic = () => {
     </>
   );
 };
-export default SubNavBarTopic;
+export default SubNavBarCloudRun;

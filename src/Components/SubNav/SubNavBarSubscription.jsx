@@ -59,7 +59,9 @@ const SubNavBarSubscription = () => {
     }
 
 
-value = localStorage.getItem("projectid");
+
+       value = localStorage.getItem("projectid");
+      
 
 // Demo function starts
     function Demo() {
@@ -89,7 +91,7 @@ value = localStorage.getItem("projectid");
                 var pair = listOfPairs[i].split(": ");
                 map[pair[0]] = pair[1];
               }
-              if (map.asset_type === "compute/Subscription") {
+              if (map.asset_type === "pubsub/Subscription") {
                 a.push(map);
               }
             }
@@ -246,17 +248,7 @@ value = localStorage.getItem("projectid");
       <div className="subNavBar">
         <nav className="navbar navbar-expand-lg bg-light">
           <div className="container-fluid">
-            {/* <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Go
-              </button>
-            </form> */}
+          
             <button
               className="navbar-toggler"
               type="button"

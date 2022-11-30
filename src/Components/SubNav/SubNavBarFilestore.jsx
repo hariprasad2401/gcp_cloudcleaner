@@ -1,4 +1,4 @@
-import { f4, f5 } from "../../pages/PubSub/Topic";
+import { f4, f5 } from "../../pages/FileStore";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import IconButton from "@material-ui/core/IconButton";
@@ -9,7 +9,7 @@ import Alert from "@mui/material/Alert"
 import { useState } from "react";
 var text = "";
 var value="";
-const SubNavBarTopic = () => {
+const SubNavBarFilestore = () => {
   const [show, setShow] = useState(false);
   const [open, setOpen] = useState(false);
   const [link, setlink] = useState(false);
@@ -60,10 +60,8 @@ const SubNavBarTopic = () => {
 
 
 
-       value = localStorage.getItem("projectid");
-      
-
 // Demo function starts
+value = localStorage.getItem("projectid");
     function Demo() {
       //count++
       const getUser = async () => {
@@ -91,12 +89,15 @@ const SubNavBarTopic = () => {
                 var pair = listOfPairs[i].split(": ");
                 map[pair[0]] = pair[1];
               }
-              if (map.asset_type === "pubsub/Topic") {
+              if (map.asset_type === "file/Instance") {
                 a.push(map);
               }
             }
             if (a.length === f5.length) {
-                   Demo();
+              setTimeout(()=>{
+
+                Demo();
+              },3000)
             }
              else {
                 setOpen(false);
@@ -110,6 +111,7 @@ const SubNavBarTopic = () => {
       getUser();
     }
     if (text === "Success") {
+
         Demo();
     }
 
@@ -248,7 +250,7 @@ const SubNavBarTopic = () => {
       <div className="subNavBar">
         <nav className="navbar navbar-expand-lg bg-light">
           <div className="container-fluid">
-          
+           
             <button
               className="navbar-toggler"
               type="button"
@@ -289,4 +291,4 @@ const SubNavBarTopic = () => {
     </>
   );
 };
-export default SubNavBarTopic;
+export default SubNavBarFilestore;

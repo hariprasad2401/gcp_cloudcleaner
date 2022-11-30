@@ -1,4 +1,4 @@
-import { f4, f5 } from "../../pages/PubSub/Topic";
+import { f4, f5 } from "../../pages/BigTableInstance";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import IconButton from "@material-ui/core/IconButton";
@@ -9,7 +9,7 @@ import Alert from "@mui/material/Alert"
 import { useState } from "react";
 var text = "";
 var value="";
-const SubNavBarTopic = () => {
+const SubNavBarBigtable = () => {
   const [show, setShow] = useState(false);
   const [open, setOpen] = useState(false);
   const [link, setlink] = useState(false);
@@ -59,11 +59,13 @@ const SubNavBarTopic = () => {
     }
 
 
-
-       value = localStorage.getItem("projectid");
-      
+const key1 = localStorage.key(1);
+      console.log("key",key1)
+       value = localStorage.getItem(key1);
+      console.log("keyyyy",value)
 
 // Demo function starts
+value = localStorage.getItem("projectid");
     function Demo() {
       //count++
       const getUser = async () => {
@@ -91,7 +93,7 @@ const SubNavBarTopic = () => {
                 var pair = listOfPairs[i].split(": ");
                 map[pair[0]] = pair[1];
               }
-              if (map.asset_type === "pubsub/Topic") {
+              if (map.asset_type === "bigtableadmin/Instance") {
                 a.push(map);
               }
             }
@@ -248,7 +250,7 @@ const SubNavBarTopic = () => {
       <div className="subNavBar">
         <nav className="navbar navbar-expand-lg bg-light">
           <div className="container-fluid">
-          
+           
             <button
               className="navbar-toggler"
               type="button"
@@ -289,4 +291,4 @@ const SubNavBarTopic = () => {
     </>
   );
 };
-export default SubNavBarTopic;
+export default SubNavBarBigtable;

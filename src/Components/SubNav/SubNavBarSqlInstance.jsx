@@ -1,4 +1,4 @@
-import { f4, f5 } from "../../pages/PubSub/Topic";
+import { f4, f5 } from "../../pages/SqlInstance";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import IconButton from "@material-ui/core/IconButton";
@@ -9,7 +9,7 @@ import Alert from "@mui/material/Alert"
 import { useState } from "react";
 var text = "";
 var value="";
-const SubNavBarTopic = () => {
+const SubNavBarSqlInstance = () => {
   const [show, setShow] = useState(false);
   const [open, setOpen] = useState(false);
   const [link, setlink] = useState(false);
@@ -60,10 +60,8 @@ const SubNavBarTopic = () => {
 
 
 
-       value = localStorage.getItem("projectid");
-      
-
 // Demo function starts
+value = localStorage.getItem("projectid");
     function Demo() {
       //count++
       const getUser = async () => {
@@ -91,7 +89,7 @@ const SubNavBarTopic = () => {
                 var pair = listOfPairs[i].split(": ");
                 map[pair[0]] = pair[1];
               }
-              if (map.asset_type === "pubsub/Topic") {
+              if (map.asset_type === "sqladmin/Instance") {
                 a.push(map);
               }
             }
@@ -289,4 +287,4 @@ const SubNavBarTopic = () => {
     </>
   );
 };
-export default SubNavBarTopic;
+export default SubNavBarSqlInstance;

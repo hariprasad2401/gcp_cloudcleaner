@@ -41,7 +41,7 @@ const Login = () => {
     };
     axios(configuration)
       .then((result) => {
-        console.log();
+      
         setLogin(true);
         localStorage.setItem(id4,email);
 
@@ -66,7 +66,7 @@ const Login = () => {
       }).then((response) => {
         const posts = response.data;
 
-        console.log("ppp", posts.projectid);
+       
        
           localStorage.setItem(id, posts.projectid);
         
@@ -85,7 +85,7 @@ const Login = () => {
       }).then((response) => {
         const posts = response.data;
 
-        console.log("ppp", posts.exportprojectid);
+        
        
           localStorage.setItem(id3, posts.datasetid);
           localStorage.setItem(id2, posts.tableid);
@@ -102,7 +102,7 @@ const Login = () => {
   }
 
   store_email = email;
-  console.log(store_email, "hh");
+ 
   return (
     <>
       <LoginHeader />

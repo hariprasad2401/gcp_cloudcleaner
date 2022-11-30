@@ -21,24 +21,26 @@ function Dashboard() {
   value4 = localStorage.getItem("tableid");
   var [getuserdata, setUserdata] = useState([]);
 
-  console.log("header",typeof(JSON.stringify(value1)))
-  if(JSON.stringify(value1)==="null"){
-    setTimeout(()=>{
-      window.location.reload(false)
-    },500)
-  }
+  console.log("header", typeof JSON.stringify(value1));
+  console.log("header", JSON.stringify(value1));
 
+  const refresh = (e) => {
+    if (JSON.stringify(value1) === "null") {
+      setTimeout(() => {
+        window.location.reload(false);
+        e.preventDefault();
+      }, 500);
+    }
+  };
+
+  refresh(value1);
 
   useEffect(() => {
- 
     names();
   }, []);
 
   const names = async () => {
-
-    
     if (value3 !== "null" && value1 !== "null" && value2 !== "null") {
-    
       const response = await fetch(
         "https://bill-6rbq08w.wl.gateway.dev/bill/" +
           JSON.stringify(value3).replaceAll('"', "") +
