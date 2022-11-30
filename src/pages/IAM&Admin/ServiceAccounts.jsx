@@ -120,7 +120,7 @@ function ServiceAccount() {
     const f2 =
       "https://list-delete-gateway-6rbq08w.uc.gateway.dev/p" +
       "/" +
-      d1["name"] +","
+      d1["name"] +","+
       // "," +
       // d2["location"].trim() +
       // "," +

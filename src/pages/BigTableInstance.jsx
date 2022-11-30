@@ -125,8 +125,8 @@ function BigTableInstance() {
       "/" +
       d1["name"] +
       "," +
-      d2["location"].trim() +
-      "," +
+      // d2["location"].trim() +
+      // "," +
       d3["asset_type"].replace("/", "-") +
       "," +
       JSON.stringify(value).replaceAll('"','');

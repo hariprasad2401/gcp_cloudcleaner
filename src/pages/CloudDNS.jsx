@@ -124,10 +124,10 @@ function CloudDNS() {
       "https://list-delete-gateway-6rbq08w.uc.gateway.dev/p" +
       "/" +
       d1["name"] +
-      "," +
-      d2["location"].trim() +
-      "," +
-      d3["asset_type"].replace("/", "-") +
+       "," +
+      // d2["location"].trim() +
+       "," +
+       d3["asset_type"].replace("/", "-") +
       "," +
       JSON.stringify(value).replaceAll('"','');
     console.log("yyy", f2);
@@ -182,7 +182,7 @@ function CloudDNS() {
                         </td>
                         <td>Sr.No</td>
                         <td>Name</td>
-                        <td>Location</td>
+                      
                        
                       </tr>
                     </thead>
@@ -203,7 +203,7 @@ function CloudDNS() {
                           </td>
                           <td>{index + 1} </td>
                           <td>{userrecords.name}</td>
-                          <td>{userrecords.location}</td>
+                       
                          
                         </tr>
                       ))}

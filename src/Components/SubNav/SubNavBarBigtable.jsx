@@ -59,10 +59,7 @@ const SubNavBarBigtable = () => {
     }
 
 
-const key1 = localStorage.key(1);
-      console.log("key",key1)
-       value = localStorage.getItem(key1);
-      console.log("keyyyy",value)
+
 
 // Demo function starts
 value = localStorage.getItem("projectid");

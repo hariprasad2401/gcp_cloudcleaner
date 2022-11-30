@@ -1,4 +1,4 @@
-import { f4, f5 } from "../../pages/SqlInstance";
+import { f4, f5 } from "../../pages/Kubernates";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import IconButton from "@material-ui/core/IconButton";
@@ -9,7 +9,7 @@ import Alert from "@mui/material/Alert"
 import { useState } from "react";
 var text = "";
 var value="";
-const SubNavBarSqlInstance = () => {
+const SubNavBarKubernetes = () => {
   const [show, setShow] = useState(false);
   const [open, setOpen] = useState(false);
   const [error, seterror] = useState(false);
@@ -96,7 +96,7 @@ value = localStorage.getItem("projectid");
                 var pair = listOfPairs[i].split(": ");
                 map[pair[0]] = pair[1];
               }
-              if (map.asset_type === "sqladmin/Instance") {
+              if (map.asset_type === "container/Cluster") {
                 a.push(map);
               }
             }
@@ -329,4 +329,4 @@ value = localStorage.getItem("projectid");
     </>
   );
 };
-export default SubNavBarSqlInstance;
+export default SubNavBarKubernetes;
