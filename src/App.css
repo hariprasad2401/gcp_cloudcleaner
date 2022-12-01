@@ -659,3 +659,18 @@ margin-left: -229px;
 .projectidmsg{
   font-size: larger;
 }
+
+.Titletextnote{
+  font-size: smaller;
+  text-align: justify;
+  padding-top: 5px;
+  color:#2d545e;
+}
+.subnavmodalinputbox{
+  padding-top: 8px;
+}
+
+.subnavmodaltitle{
+  font-weight: 600;
+  color: #05083a;
+}

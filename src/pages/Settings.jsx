@@ -11,6 +11,7 @@ const Saved = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
+  const handleClick = () => setOpen(false);
   const [text, setText] = useState("OK");
 
   const [MasterChecked, setMasterCheck] = useState(false);
@@ -93,6 +94,7 @@ const Saved = () => {
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
+        onHide={handleClick}
       >
         <Modal.Header closeButton onHide={handleClose}>
           <Modal.Title></Modal.Title>

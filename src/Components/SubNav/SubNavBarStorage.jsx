@@ -5,10 +5,10 @@ import IconButton from "@material-ui/core/IconButton";
 import Snackbar from "@material-ui/core/Snackbar";
 import CloseIcon from "@material-ui/icons/Close";
 import AutorenewIcon from "@material-ui/icons/Autorenew";
-import Alert from "@mui/material/Alert"
+import Alert from "@mui/material/Alert";
 import { useState } from "react";
 var text = "";
-var value="";
+var value = "";
 const SubNavBarStorage = () => {
   const [show, setShow] = useState(false);
   const [open, setOpen] = useState(false);
@@ -16,7 +16,6 @@ const SubNavBarStorage = () => {
   const [link, setlink] = useState(false);
   const [delerror, setdelerror] = useState(false);
   const [input, setinput] = useState("");
- 
 
   function getUnique(array) {
     var uniqueArray = [];
@@ -30,18 +29,15 @@ const SubNavBarStorage = () => {
   }
   var newArr = getUnique(f4);
 
-  
   const handleClose = () => setShow(false);
 
   // deleting process start
-  function callingdelete(){
+  function callingdelete() {
     setShow(true);
   }
   async function handleClick(e) {
-   
     for (let j = 0; j < e.length; j++) {
       let test = e[j];
-
 
       await fetch(test, {
         method: "GET",
@@ -57,26 +53,24 @@ const SubNavBarStorage = () => {
           console.log("msg:", text);
           console.warn("warn:", result);
         })
-        .catch((error)=>{
-          error=new Error;
-          setOpen(false)
-          seterror(true)
+        .catch((error) => {
+          error = new Error();
+          setOpen(false);
+          seterror(true);
           setTimeout(() => {
             window.location.reload(false);
           }, 3000);
-
-        })
+        });
     }
 
-
     value = localStorage.getItem("projectid");
-// Demo function starts
+    // Demo function starts
     function Demo() {
       //count++
       const getUser = async () => {
-     
         const resData = await fetch(
-          "https://list-delete-gateway-6rbq08w.uc.gateway.dev/print/"+JSON.stringify(value).replaceAll('"',''),
+          "https://list-delete-gateway-6rbq08w.uc.gateway.dev/print/" +
+            JSON.stringify(value).replaceAll('"', ""),
           {
             method: "GET",
             headers: {
@@ -91,7 +85,6 @@ const SubNavBarStorage = () => {
 
             let a = [];
             for (let j = 0; j < test.length; j++) {
-          
               var map = {};
               var listOfPairs = test[j].split("\n");
               for (var i = 0; i < listOfPairs.length; i++) {
@@ -103,12 +96,11 @@ const SubNavBarStorage = () => {
               }
             }
             if (a.length === f5.length) {
-                   Demo();
-            }
-             else {
-                setOpen(false);
-                setlink(true);
-                setTimeout(() => {
+              Demo();
+            } else {
+              setOpen(false);
+              setlink(true);
+              setTimeout(() => {
                 window.location.reload(true);
               }, 1000);
             }
@@ -117,9 +109,8 @@ const SubNavBarStorage = () => {
       getUser();
     }
     if (text === "Success") {
-        Demo();
+      Demo();
     }
-
   }
 
   const handleToClose = (event, reason) => {
@@ -129,7 +120,7 @@ const SubNavBarStorage = () => {
   const handleClickEvent = () => {
     setShow(false);
     setOpen(true);
-    handleClick(newArr)
+    handleClick(newArr);
   };
 
   function callingInputs() {
@@ -139,29 +130,20 @@ const SubNavBarStorage = () => {
   }
   const handletoclose = () => {
     setlink(false);
-    seterror(false)
+    seterror(false);
   };
 
- 
+  const changeBordercolor = (e) => {
+    let b = e.target.value;
 
-  const changeBordercolor=(e)=>{
-    
-      let  b=e.target.value
-   
-      if (setinput(e.target.value)==='Delete') {
-          e.target.style.border
-                  = "2px solid black";
-      }
-     else{
-        e.target.style.border
-        = "2px solid red";
+    if (setinput(e.target.value) === "Delete") {
+      e.target.style.border = "2px solid black";
+    } else {
+      e.target.style.border = "2px solid red";
+    }
+  };
 
-      }
-  
-
-  }   
-
-  function refreshPage(){
+  function refreshPage() {
     window.location.reload(false);
   }
   return (
@@ -172,18 +154,21 @@ const SubNavBarStorage = () => {
         </Modal.Header>
         <Modal.Body>
           <div className="wrapper">
-            <h6 class="Title">
+            <h6 class="Title subnavmodaltitle">
               Are you sure,want to delete,enter "Delete" below
             </h6>
-            <br />
-            <div class="Input">
+
+            <div class="Input subnavmodalinputbox">
               <input
                 onChange={(e) => changeBordercolor(e)}
                 class="Input-text"
                 placeholder="Delete"
               />
-              {/* {<i class="fa fa-refresh fa-spin" style="font-size:24px"></i>} */}
             </div>
+
+            <h6 class="Titletextnote">
+              *Please ensure to take backup before deleting
+            </h6>
           </div>
         </Modal.Body>
         <Modal.Footer>
@@ -198,18 +183,16 @@ const SubNavBarStorage = () => {
         </Modal.Footer>
       </Modal>
 
-     
-
-       <Snackbar
+      <Snackbar
         anchorOrigin={{
           horizontal: "center",
           vertical: "bottom",
         }}
-       // bodyStyle={{ height: 200, width: 200, flexGrow: 0 }}
-       sx={{
-        width: "auto",
-        color: "secondary",
-      }}
+        // bodyStyle={{ height: 200, width: 200, flexGrow: 0 }}
+        sx={{
+          width: "auto",
+          color: "secondary",
+        }}
         open={open}
         // autoHideDuration={60000}
         message="Started Deleting. . . . . . ."
@@ -217,7 +200,6 @@ const SubNavBarStorage = () => {
         fontSize="large"
         action={
           <div>
-           
             <IconButton size="small" aria-label="loading" color="inherit">
               <AutorenewIcon fontSize="small" />
             </IconButton>
@@ -226,23 +208,22 @@ const SubNavBarStorage = () => {
               aria-label="close"
               color="inherit"
               onClick={handleToClose}
-           
             >
               <CloseIcon fontSize="medium" />
             </IconButton>
           </div>
         }
-      /> 
-<Snackbar
+      />
+      <Snackbar
         anchorOrigin={{
           horizontal: "center",
           vertical: "bottom",
         }}
-       // bodyStyle={{ height: 200, width: 200, flexGrow: 0 }}
-       style={{
-        width: "auto",
-        color: "secondary",
-      }}
+        // bodyStyle={{ height: 200, width: 200, flexGrow: 0 }}
+        style={{
+          width: "auto",
+          color: "secondary",
+        }}
         open={error}
         // autoHideDuration={60000}
         message="Error deleting the resources!!!!"
@@ -250,7 +231,6 @@ const SubNavBarStorage = () => {
         fontSize="large"
         action={
           <div>
-           
             <IconButton size="small" aria-label="loading" color="inherit">
               <AutorenewIcon fontSize="small" />
             </IconButton>
@@ -259,13 +239,12 @@ const SubNavBarStorage = () => {
               aria-label="close"
               color="inherit"
               onClick={handleToClose}
-           
             >
               <CloseIcon fontSize="medium" />
             </IconButton>
           </div>
         }
-      /> 
+      />
 
       <Snackbar open={link} autoHideDuration={6000} onClose={handletoclose}>
         <Alert
@@ -274,8 +253,8 @@ const SubNavBarStorage = () => {
           severity="success"
           sx={{
             width: "auto",
-            
-            backgroundColor:"darkslategray",
+
+            backgroundColor: "darkslategray",
             color: "white",
             fontSize: "large",
           }}
@@ -283,8 +262,6 @@ const SubNavBarStorage = () => {
           <strong>Successfully Deleted!!</strong>
         </Alert>
       </Snackbar>
-
-   
 
       <div className="subNavBar">
         <nav className="navbar navbar-expand-lg bg-light">
@@ -305,13 +282,14 @@ const SubNavBarStorage = () => {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <div>
-      <button onClick={refreshPage} className="btn btn-primary">Refresh</button>
-    </div> 
-             
-         
+                <div>
+                  <button onClick={refreshPage} className="btn btn-primary">
+                    Refresh
+                  </button>
+                </div>
+
                 <li className="nav-item">
-           <button
+                  <button
                     data-toggle="Modal"
                     data-target="#exampleModal"
                     onClick={() => callingdelete()}

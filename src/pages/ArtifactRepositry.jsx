@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../Components/SubNav/SubNavBarCloudfunction"
 import SubNavBarCloudFunction from "../Components/SubNav/SubNavBarCloudfunction";
-//import { useNavigate} from 'react-router-dom';
 import Pagination from "../Components/SubPagination/Pagination";
-//import { Container } from "react-bootstrap";
+
 import "../Style.scss"
 
 let PageSize = 3;

@@ -162,19 +162,22 @@ value = localStorage.getItem("projectid");
           <Modal.Title>Delete Confirmation</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="wrapper">
-            <h6 class="Title">
+        <div className="wrapper">
+            
+            <h6 class="Title subnavmodaltitle">
               Are you sure,want to delete,enter "Delete" below
             </h6>
-            <br />
-            <div class="Input">
+        
+            <div class="Input subnavmodalinputbox">
               <input
                 onChange={(e) => changeBordercolor(e)}
                 class="Input-text"
                 placeholder="Delete"
               />
-              {/* {<i class="fa fa-refresh fa-spin" style="font-size:24px"></i>} */}
+             
             </div>
+          
+            <h6 class="Titletextnote">*Please ensure to take backup before deleting</h6>
           </div>
         </Modal.Body>
         <Modal.Footer>

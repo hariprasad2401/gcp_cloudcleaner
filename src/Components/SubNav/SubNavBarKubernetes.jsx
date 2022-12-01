@@ -5,10 +5,10 @@ import IconButton from "@material-ui/core/IconButton";
 import Snackbar from "@material-ui/core/Snackbar";
 import CloseIcon from "@material-ui/icons/Close";
 import AutorenewIcon from "@material-ui/icons/Autorenew";
-import Alert from "@mui/material/Alert"
+import Alert from "@mui/material/Alert";
 import { useState } from "react";
 var text = "";
-var value="";
+var value = "";
 const SubNavBarKubernetes = () => {
   const [show, setShow] = useState(false);
   const [open, setOpen] = useState(false);
@@ -16,7 +16,6 @@ const SubNavBarKubernetes = () => {
   const [link, setlink] = useState(false);
   const [delerror, setdelerror] = useState(false);
   const [input, setinput] = useState("");
- 
 
   function getUnique(array) {
     var uniqueArray = [];
@@ -33,14 +32,12 @@ const SubNavBarKubernetes = () => {
   const handleClose = () => setShow(false);
 
   // deleting process start
-  function callingdelete(){
+  function callingdelete() {
     setShow(true);
   }
   async function handleClick(e) {
-   
     for (let j = 0; j < e.length; j++) {
       let test = e[j];
-    
 
       await fetch(test, {
         method: "GET",
@@ -56,24 +53,21 @@ const SubNavBarKubernetes = () => {
           console.log("msg:", text);
           console.warn("warn:", result);
         })
-        .catch((error)=>{
-          error=new Error;
-          setOpen(false)
-          seterror(true)
-
-        })
+        .catch((error) => {
+          error = new Error();
+          setOpen(false);
+          seterror(true);
+        });
     }
 
-
-
-// Demo function starts
-value = localStorage.getItem("projectid");
+    // Demo function starts
+    value = localStorage.getItem("projectid");
     function Demo() {
       //count++
       const getUser = async () => {
-     
         const resData = await fetch(
-          "https://list-delete-gateway-6rbq08w.uc.gateway.dev/print/"+JSON.stringify(value).replaceAll('"',''),
+          "https://list-delete-gateway-6rbq08w.uc.gateway.dev/print/" +
+            JSON.stringify(value).replaceAll('"', ""),
           {
             method: "GET",
             headers: {
@@ -88,7 +82,6 @@ value = localStorage.getItem("projectid");
 
             let a = [];
             for (let j = 0; j < test.length; j++) {
-            
               var map = {};
               var listOfPairs = test[j].split("\n");
               for (var i = 0; i < listOfPairs.length; i++) {
@@ -100,12 +93,11 @@ value = localStorage.getItem("projectid");
               }
             }
             if (a.length === f5.length) {
-                   Demo();
-            }
-             else {
-                setOpen(false);
-                setlink(true);
-                setTimeout(() => {
+              Demo();
+            } else {
+              setOpen(false);
+              setlink(true);
+              setTimeout(() => {
                 window.location.reload(true);
               }, 1000);
             }
@@ -114,9 +106,8 @@ value = localStorage.getItem("projectid");
       getUser();
     }
     if (text === "Success") {
-        Demo();
+      Demo();
     }
-
   }
 
   const handleToClose = (event, reason) => {
@@ -126,7 +117,7 @@ value = localStorage.getItem("projectid");
   const handleClickEvent = () => {
     setShow(false);
     setOpen(true);
-    handleClick(newArr)
+    handleClick(newArr);
   };
 
   function callingInputs() {
@@ -138,26 +129,17 @@ value = localStorage.getItem("projectid");
     setlink(false);
   };
 
+  const changeBordercolor = (e) => {
+    let b = e.target.value;
 
+    if (setinput(e.target.value) === "Delete") {
+      e.target.style.border = "2px solid black";
+    } else {
+      e.target.style.border = "2px solid red";
+    }
+  };
 
-  const changeBordercolor=(e)=>{
-    
-      let  b=e.target.value
-   
-      if (setinput(e.target.value)==='Delete') {
-          e.target.style.border
-                  = "2px solid black";
-      }
-     else{
-        e.target.style.border
-        = "2px solid red";
-
-      }
-  
-
-  }   
-
-  function refreshPage(){
+  function refreshPage() {
     window.location.reload(false);
   }
   return (
@@ -168,18 +150,21 @@ value = localStorage.getItem("projectid");
         </Modal.Header>
         <Modal.Body>
           <div className="wrapper">
-            <h6 class="Title">
+            <h6 class="Title subnavmodaltitle">
               Are you sure,want to delete,enter "Delete" below
             </h6>
-            <br />
-            <div class="Input">
+
+            <div class="Input subnavmodalinputbox">
               <input
                 onChange={(e) => changeBordercolor(e)}
                 class="Input-text"
                 placeholder="Delete"
               />
-              {/* {<i class="fa fa-refresh fa-spin" style="font-size:24px"></i>} */}
             </div>
+
+            <h6 class="Titletextnote">
+              *Please ensure to take backup before deleting
+            </h6>
           </div>
         </Modal.Body>
         <Modal.Footer>
@@ -194,18 +179,16 @@ value = localStorage.getItem("projectid");
         </Modal.Footer>
       </Modal>
 
-     
-
-       <Snackbar
+      <Snackbar
         anchorOrigin={{
           horizontal: "center",
           vertical: "bottom",
         }}
-       // bodyStyle={{ height: 200, width: 200, flexGrow: 0 }}
-       sx={{
-        width: "auto",
-        color: "secondary",
-      }}
+        // bodyStyle={{ height: 200, width: 200, flexGrow: 0 }}
+        sx={{
+          width: "auto",
+          color: "secondary",
+        }}
         open={open}
         // autoHideDuration={60000}
         message="Started Deleting. . . . . . ."
@@ -213,7 +196,6 @@ value = localStorage.getItem("projectid");
         fontSize="large"
         action={
           <div>
-           
             <IconButton size="small" aria-label="loading" color="inherit">
               <AutorenewIcon fontSize="small" />
             </IconButton>
@@ -222,24 +204,23 @@ value = localStorage.getItem("projectid");
               aria-label="close"
               color="inherit"
               onClick={handleToClose}
-           
             >
               <CloseIcon fontSize="medium" />
             </IconButton>
           </div>
         }
-      /> 
+      />
 
-<Snackbar
+      <Snackbar
         anchorOrigin={{
           horizontal: "center",
           vertical: "bottom",
         }}
-       // bodyStyle={{ height: 200, width: 200, flexGrow: 0 }}
-       sx={{
-        width: "auto",
-        color: "secondary",
-      }}
+        // bodyStyle={{ height: 200, width: 200, flexGrow: 0 }}
+        sx={{
+          width: "auto",
+          color: "secondary",
+        }}
         open={error}
         // autoHideDuration={60000}
         message="Error deleting the resources. . . . . . ."
@@ -247,7 +228,6 @@ value = localStorage.getItem("projectid");
         fontSize="large"
         action={
           <div>
-           
             <IconButton size="small" aria-label="loading" color="inherit">
               <AutorenewIcon fontSize="small" />
             </IconButton>
@@ -256,15 +236,13 @@ value = localStorage.getItem("projectid");
               aria-label="close"
               color="inherit"
               onClick={handleToClose}
-           
             >
               <CloseIcon fontSize="medium" />
             </IconButton>
           </div>
         }
-      /> 
-     
-     
+      />
+
       <Snackbar open={link} autoHideDuration={6000} onClose={handletoclose}>
         <Alert
           className="alert"
@@ -272,8 +250,8 @@ value = localStorage.getItem("projectid");
           severity="success"
           sx={{
             width: "auto",
-            
-            backgroundColor:"darkslategray",
+
+            backgroundColor: "darkslategray",
             color: "white",
             fontSize: "large",
           }}
@@ -282,12 +260,9 @@ value = localStorage.getItem("projectid");
         </Alert>
       </Snackbar>
 
-   
-
       <div className="subNavBar">
         <nav className="navbar navbar-expand-lg bg-light">
           <div className="container-fluid">
-          
             <button
               className="navbar-toggler"
               type="button"
@@ -304,13 +279,14 @@ value = localStorage.getItem("projectid");
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <div>
-      <button onClick={refreshPage} className="btn btn-primary">Refresh</button>
-    </div> 
-             
-         
+                <div>
+                  <button onClick={refreshPage} className="btn btn-primary">
+                    Refresh
+                  </button>
+                </div>
+
                 <li className="nav-item">
-           <button
+                  <button
                     data-toggle="Modal"
                     data-target="#exampleModal"
                     onClick={() => callingdelete()}
