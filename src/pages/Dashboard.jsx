@@ -21,9 +21,6 @@ function Dashboard() {
   value4 = localStorage.getItem("tableid");
   var [getuserdata, setUserdata] = useState([]);
 
-  console.log("header", typeof JSON.stringify(value1));
-  console.log("header", JSON.stringify(value1));
-
   const refresh = (e) => {
     if (JSON.stringify(value1) === "null") {
       setTimeout(() => {
@@ -54,10 +51,8 @@ function Dashboard() {
       const d = await response.text();
       const data = d.split("\n");
       setUserdata(data);
-      console.log("ds", data);
     }
   };
-  console.log("////", getuserdata);
 
   return (
     <>

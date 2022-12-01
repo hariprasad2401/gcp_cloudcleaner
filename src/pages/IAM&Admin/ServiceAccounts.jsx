@@ -62,7 +62,7 @@ function ServiceAccount() {
   }, []);
 
   f5 = getuserdata;
-  console.log("f5", f5);
+
   const [currentPage, setCurrentPage] = useState(1);
   const firstPageIndex = (currentPage - 1) * PageSize;
   const lastPageIndex = firstPageIndex + PageSize;
@@ -73,7 +73,6 @@ function ServiceAccount() {
     let tempList = getuserdata;
     // Check/ UnCheck All Items
     tempList.map((user) => (user.selected = e.target.checked));
-    console.log("qqq", tempList);
 
     //Update State
     setMasterCheck(e.target.checked);
@@ -102,7 +101,7 @@ function ServiceAccount() {
   };
 
   let f1 = list;
-  console.log("kk", f1);
+
   f4 = [];
   //let f5=[]
   for (let i = 0; i < f1.length; i++) {
@@ -120,17 +119,11 @@ function ServiceAccount() {
     const f2 =
       "https://list-delete-gateway-6rbq08w.uc.gateway.dev/p" +
       "/" +
-      d1["name"] +","+
-      // "," +
-      // d2["location"].trim() +
-      // "," +
-      // d3["asset_type"].replace("/", "-") +
-      // "," +
+      d1["name"] +
+      "," +
       JSON.stringify(value).replaceAll('"', "");
-    console.log("yyy", f2);
+
     f4.push(f2);
-    //f4=f5;
-    console.log("gg", f4);
   }
 
   return (

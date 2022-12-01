@@ -16,17 +16,25 @@ function BillingSettings() {
     const proid = async () => {
       key = localStorage.getItem("email");
 
-      const other = await axios("https://databasegateway-6rbq08w.ue.gateway.dev/mgdb/billingdetails,"+JSON.stringify(key).replaceAll('"','')+","+JSON.stringify(datasetid).replaceAll('"','')+","+JSON.stringify(tableid).replaceAll('"','')+","+JSON.stringify(projectid).replaceAll('"',''), {
-        method: "GET",
-       
-      }).then((response) => {
-        console.log("hdfuhfhj", response);
-        if(response.data.message==="Update Successful"){
-            setText("Update")
-            setloading(true)
-            setTimeout(() => {
-                navigate("/");
-            },4000);
+      const other = await axios(
+        "https://databasegateway-6rbq08w.ue.gateway.dev/mgdb/billingdetails," +
+          JSON.stringify(key).replaceAll('"', "") +
+          "," +
+          JSON.stringify(datasetid).replaceAll('"', "") +
+          "," +
+          JSON.stringify(tableid).replaceAll('"', "") +
+          "," +
+          JSON.stringify(projectid).replaceAll('"', ""),
+        {
+          method: "GET",
+        }
+      ).then((response) => {
+        if (response.data.message === "Update Successful") {
+          setText("Update");
+          setloading(true);
+          setTimeout(() => {
+            navigate("/");
+          }, 4000);
         }
       });
     };
@@ -70,13 +78,13 @@ function BillingSettings() {
                   </a>
                 </li>
                 You can either use same project or different project, but if you
-                are using different project then please provide 'Owner' permission{" "}
-                <br />
+                are using different project then please provide 'Owner'
+                permission <br />
                 to "xyz" service account in that project. If you have already
                 configured export as above, please wait for 24hrs for table to
-                be created <br/> in bigquery for first time.
-                <br/>
-                <br/>
+                be created <br /> in bigquery for first time.
+                <br />
+                <br />
                 <li>
                   Provide requested details in below <strong>Form</strong> to
                   continue.
@@ -153,37 +161,32 @@ function BillingSettings() {
               <br />
 
               <button type="Submit" className="billingsettingsubmitbtn">
-               {text}
+                {text}
               </button>
               <Snackbar
-        anchorOrigin={{
-          horizontal: "center",
-          vertical: "bottom",
-        }}
-      
-       sx={{
-        width: "auto",
-        color: "secondary",
-      }}
-        open={loading}
-        autoHideDuration={3000}
-        message="Billing Data Updated Successfully!!!!"
-        fontSize="large"
-
-  
-        
-      /> 
+                anchorOrigin={{
+                  horizontal: "center",
+                  vertical: "bottom",
+                }}
+                sx={{
+                  width: "auto",
+                  color: "secondary",
+                }}
+                open={loading}
+                autoHideDuration={3000}
+                message="Billing Data Updated Successfully!!!!"
+                fontSize="large"
+              />
             </form>
-           
           </div>
           <div
-          className="card-footer text-muted"
-          // style={{
-          //   borderTop: "2px solid #05083a",
-          // }}
-        >
-          On Update, site will be redirected to Login page.....
-        </div>
+            className="card-footer text-muted"
+            // style={{
+            //   borderTop: "2px solid #05083a",
+            // }}
+          >
+            On Update, site will be redirected to Login page.....
+          </div>
         </div>
       </div>
     </>

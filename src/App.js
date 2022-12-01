@@ -30,21 +30,6 @@ function App() {
           <Route path="/" element={<Login/>}/>
           <Route path="/Signup" element={<Signup/>}/>
           <Route path="/AllFilesHandler/*" element={<AllFilesHandler />} /> 
-          {/* <Route path="Dashboard" element={<Dashboard/>}/>
-           <Route path="/IAM&Admin/IamRole" element={<IamRole />} />
-          <Route path="/IAM&Admin/ServiceAccounts" element={<ServiceAccounts />} />
-          <Route path="/PubSub/Topic" element={<Topic />} />
-          <Route path="/PubSub/Subscription" element={<Subscription />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/CloudFunction" element={<CloudFuncton />} />
-          <Route path="/ComputeEngine/Instance" element={<Instance />} />
-          <Route path="/ComputeEngine/Disks" element={<Disks />} />
-          <Route path="/ComputeEngine/Snapshot" element={<Snapshot />} />
-          <Route path="/ComputeEngine/Image" element={<Image />} />
-          <Route path="/ComputeEngine/InstanceTemplete" element={<InstanceTemplete />} />
-          <Route path="/Storage/Bucket" element={<Bucket />} />
-          <Route path="/AppEngine/AppEngine" element={<AppEngine />} />
-          <Route path="*" element={<> not found</>} />  */}
        </Routes>
        </Router>
       

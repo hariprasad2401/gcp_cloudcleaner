@@ -31,7 +31,7 @@ const SubNavBar = () => {
   }
   var newArr = getUnique(f4);
 
-  console.log("lll", newArr);
+
   const handleClose = () => setShow(false);
 
   // deleting process start
@@ -44,7 +44,7 @@ const SubNavBar = () => {
    
     for (let j = 0; j < e.length; j++) {
       let test = e[j];
-      console.log("jj", test);
+     
 
       await fetch(test, {
         method: "GET",
@@ -61,7 +61,7 @@ const SubNavBar = () => {
           console.warn("warn:", result);
         });
     }
-    console.log("ani", text);
+   
 
 // Demo function starts
 value = localStorage.getItem("projectid");
@@ -84,7 +84,7 @@ value = localStorage.getItem("projectid");
 
             let a = [];
             for (let j = 0; j < test.length; j++) {
-              // console.log(test)
+             
               var map = {};
               var listOfPairs = test[j].split("\n");
               for (var i = 0; i < listOfPairs.length; i++) {
@@ -132,7 +132,6 @@ value = localStorage.getItem("projectid");
     setlink(false);
   };
 
-  // console.log("test", input);
 
   const changeBordercolor=(e)=>{
     setinput(e.target.value)

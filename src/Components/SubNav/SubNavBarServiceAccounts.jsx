@@ -29,7 +29,7 @@ const SubNavBarServiceAccounts = () => {
   }
   var newArr = getUnique(f4);
 
-  console.log("lll", newArr);
+
   const handleClose = () => setShow(false);
 
   // deleting process start
@@ -40,7 +40,7 @@ const SubNavBarServiceAccounts = () => {
    
     for (let j = 0; j < e.length; j++) {
       let test = e[j];
-      console.log("jj", test);
+      
 
       await fetch(test, {
         method: "GET",
@@ -84,7 +84,7 @@ const SubNavBarServiceAccounts = () => {
 
             let a = [];
             for (let j = 0; j < test.length; j++) {
-              // console.log(test)
+            
               var map = {};
               var listOfPairs = test[j].split("\n");
               for (var i = 0; i < listOfPairs.length; i++) {
@@ -134,12 +134,12 @@ const SubNavBarServiceAccounts = () => {
     setlink(false);
   };
 
-  // console.log("test", input);
+ 
 
   const changeBordercolor=(e)=>{
     
       let  b=e.target.value
-      console.log("test",(b))
+    
       if (setinput(e.target.value)==='Delete') {
           e.target.style.border
                   = "2px solid black";

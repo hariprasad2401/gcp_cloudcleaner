@@ -5,32 +5,31 @@ import Pagination from "../Components/SubPagination/Pagination";
 import Snackbar from "@material-ui/core/Snackbar";
 import "../Style.scss";
 
-
-
 let PageSize = 3;
 var f4 = [];
 var f5 = [];
-var value=""
+var value = "";
 function CloudRun() {
   const [getuserdata, setUserdata] = useState([]);
   const [list, setList] = useState([]);
   const [MasterChecked, setMasterCheck] = useState(false);
   const [loading, setloading] = useState(false);
-  
+
   useEffect(() => {
     const getUser = async () => {
-      setloading(true)
+      setloading(true);
 
       // projectid
-   
-       value = localStorage.getItem("projectid");
-    
+
+      value = localStorage.getItem("projectid");
+
       const resData = await fetch(
-         "https://list-delete-gateway-6rbq08w.uc.gateway.dev/print/"+JSON.stringify(value).replaceAll('"',''),
-      
+        "https://list-delete-gateway-6rbq08w.uc.gateway.dev/print/" +
+          JSON.stringify(value).replaceAll('"', ""),
+
         {
           method: "GET",
-      
+
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
@@ -45,38 +44,35 @@ function CloudRun() {
             var map = {};
             var listOfPairs = test[j].split("\n");
             for (var i = 0; i < listOfPairs.length; i++) {
-                var pair = listOfPairs[i].split(": ");
-                map[pair[0]] = pair[1];
+              var pair = listOfPairs[i].split(": ");
+              map[pair[0]] = pair[1];
             }
-          
+
             if (map.asset_type === "run/Service") {
               a.push(map);
-        
             }
           }
           return a;
         });
 
       setUserdata(resData);
-      setloading(false)
+      setloading(false);
     };
     getUser();
   }, []);
 
   f5 = getuserdata;
-  console.log("f5",f5)
+
   const [currentPage, setCurrentPage] = useState(1);
   const firstPageIndex = (currentPage - 1) * PageSize;
   const lastPageIndex = firstPageIndex + PageSize;
   const currentTableData = getuserdata.slice(firstPageIndex, lastPageIndex);
-
 
   // Select/ UnSelect Table rows
   let onMasterCheck = (e) => {
     let tempList = getuserdata;
     // Check/ UnCheck All Items
     tempList.map((user) => (user.selected = e.target.checked));
-    console.log("qqq", tempList);
 
     //Update State
     setMasterCheck(e.target.checked);
@@ -105,9 +101,9 @@ function CloudRun() {
   };
 
   let f1 = list;
-  console.log("kk", f1);
+
   f4 = [];
-  //let f5=[]
+
   for (let i = 0; i < f1.length; i++) {
     let temp = [];
     temp.push(f1[i]);
@@ -129,35 +125,28 @@ function CloudRun() {
       "," +
       d3["asset_type"].replace("/", "-") +
       "," +
-      JSON.stringify(value).replaceAll('"','');
-    console.log("yyy", f2);
+      JSON.stringify(value).replaceAll('"', "");
+
     f4.push(f2);
-    //f4=f5;
-    console.log("gg", f4);
   }
 
   return (
     <>
-     
       <React.Fragment>
-      <Snackbar
-        anchorOrigin={{
-          horizontal: "center",
-          vertical: "bottom",
-        }}
-      
-       sx={{
-        width: "auto",
-        color: "secondary",
-      }}
-        open={loading}
-        autoHideDuration={3000}
-        message="Data is Loading, Please Wait....."
-        fontSize="large"
-
-  
-        
-      /> 
+        <Snackbar
+          anchorOrigin={{
+            horizontal: "center",
+            vertical: "bottom",
+          }}
+          sx={{
+            width: "auto",
+            color: "secondary",
+          }}
+          open={loading}
+          autoHideDuration={3000}
+          message="Data is Loading, Please Wait....."
+          fontSize="large"
+        />
         <div className="my-content">
           <div>
             <h2>CloudRun</h2>
@@ -183,7 +172,6 @@ function CloudRun() {
                         <td>Sr.No</td>
                         <td>Name</td>
                         <td>Location</td>
-                       
                       </tr>
                     </thead>
                     <tbody>
@@ -204,7 +192,6 @@ function CloudRun() {
                           <td>{index + 1} </td>
                           <td>{userrecords.name}</td>
                           <td>{userrecords.location}</td>
-                         
                         </tr>
                       ))}
                     </tbody>

@@ -70,7 +70,7 @@ function Disk() {
 
   const handlecheckbox = (e) => {
     const { value, checked } = e.target;
-    console.log(value);
+  
     if (checked) {
       setisChecked([...isChecked, value]);
     } else {
@@ -83,7 +83,7 @@ function Disk() {
     let tempList = getuserdata;
     // Check/ UnCheck All Items
     tempList.map((user) => (user.selected = e.target.checked));
-    console.log("qqq", tempList);
+
 
     //Update State
     setMasterCheck(e.target.checked);
@@ -112,7 +112,7 @@ function Disk() {
   };
 
   let f1 = list;
-  console.log("kk", f1);
+
   f4 = [];
   //let f5=[]
   for (let i = 0; i < f1.length; i++) {
@@ -137,10 +137,10 @@ function Disk() {
       d3["asset_type"].replace("/", "-") +
       "," +
       JSON.stringify(value).replaceAll('"','');
-    console.log("yyy", f2);
+ 
     f4.push(f2);
     //f4=f5;
-    console.log("gg", f4);
+   
   }
 
   return (
