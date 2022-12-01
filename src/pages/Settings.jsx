@@ -102,7 +102,7 @@ const Saved = () => {
         <Modal.Body>
           <div className="wrapper">
             <h6 class="Title" className="projectidmsg">
-              <strong>Your Project ID Updateded Successfully!!!!!</strong>
+              <strong>Your Project ID Updated  Successfully!!!!!</strong>
             </h6>
             <br />
           </div>
