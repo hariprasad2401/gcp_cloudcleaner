@@ -592,6 +592,13 @@ margin-left: -229px;
   color: #05083a;
 }
 
+.settingcancle {
+  margin-top: 10px;
+  border: 2px solid rgb(255, 255, 255);
+  background-color: #f31616e5;
+  color: white;
+}
+
 .projectidSettings {
   padding-right: 1000px;
 }
@@ -674,3 +681,10 @@ margin-left: -229px;
   font-weight: 600;
   color: #05083a;
 }
+
+.crosssim{
+ 
+  float: right;
+}
+
+

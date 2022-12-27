@@ -151,7 +151,7 @@ function Kubernetes() {
         />
         <div className="my-content">
           <div>
-            <h2>Cluster</h2>
+            <h2>GKE Cluster</h2>
           </div>
           <div className="container-md">
             <SubNavBarKubernetes />

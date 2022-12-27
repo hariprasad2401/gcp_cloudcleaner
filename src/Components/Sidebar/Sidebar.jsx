@@ -186,7 +186,7 @@ const routes = [
   },
   {
     path: "/AllFilesHandler/ArtifactRepositry",
-    name: "Artifact Repositry",
+    name: "Artifact Registry",
     icon: <GiGlowingArtifact/>,
   },
   {

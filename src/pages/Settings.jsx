@@ -1,6 +1,7 @@
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import {ImCross} from "react-icons/im";
 import axios from "axios";
 import Modal from "react-bootstrap/Modal";
 var key = "";
@@ -65,6 +66,10 @@ const Saved = () => {
     setMasterCheck(e.target.checked);
   };
 
+ function handlecross(){
+  navigate("/AllFilesHandler/Dashboard")
+ }
+
   return (
     <>
       <Modal show={show}>
@@ -119,7 +124,7 @@ const Saved = () => {
       </Modal>
       <div className="accountchange">
         <div className=" accountcard card text-center">
-          <div className="card-header">Project Change</div>
+          <div className="card-header">Project Change  <span className="crosssim" onClick={handlecross}><ImCross/></span></div>
           <div className="card-body">
             <form onSubmit={(e) => handlesubmit(e)}>
               <div className="currentprojectid form-group row">
@@ -173,7 +178,7 @@ const Saved = () => {
                 <span className="note">
                   {" "}
                   <em>
-                    Please Provide 'Owner' access to 'XYZ' service account in
+                    Please Provide 'Owner' access to 'saforcf@cloudcleaner-365806.iam.gserviceaccount.com' service account in
                     your project and Confirm.
                   </em>
                 </span>
@@ -182,6 +187,11 @@ const Saved = () => {
               <br />
               <Button type="submit" className="settingsubmit">
                 Submit
+              </Button>
+           
+              &emsp;
+              <Button type="submit" className="settingcancle" onClick={handlecross}>
+                Cancel
               </Button>
             </form>
           </div>

@@ -2,19 +2,46 @@ import React, { useState, useEffect } from "react";
 import Plot from "react-plotly.js";
 import { Col, Row } from "react-bootstrap";
 import { FiCpu } from "react-icons/fi";
+import {BiCard } from "react-icons/bi";
 import { MdStorage } from "react-icons/md";
 import { FaVectorSquare } from "react-icons/fa";
 import { BsStack, BsDiagram3Fill } from "react-icons/bs";
 import { TbCodeMinus, TbMapSearch } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import axios from "axios";
 import "../Style.scss";
 var value1 = "";
 var value2 = "";
 var value3 = "";
 var value4 = "";
-
+var id = "projectid";
+var id1 = "exportprojectid";
+var id2 = "tableid";
+var id3 = "datasetid";
+var id4 = "email";
+var list1 = [];
+var list2 = [];
 function Dashboard() {
+  const key = localStorage.getItem("email");
+
+  const dataid = async () => {
+    const other = await axios(
+      "https://databasegateway-6rbq08w.ue.gateway.dev/mgdb/dataset," +
+        JSON.stringify(key).replaceAll('"', ""),
+      {
+        method: "GET",
+      }
+    ).then((response) => {
+      const posts = response.data;
+
+      localStorage.setItem(id3, posts.datasetid);
+      localStorage.setItem(id2, posts.tableid);
+      localStorage.setItem(id1, posts.exportprojectid);
+    });
+  };
+  dataid();
+
   value1 = localStorage.getItem("projectid");
   value2 = localStorage.getItem("exportprojectid");
   value3 = localStorage.getItem("datasetid");
@@ -54,6 +81,42 @@ function Dashboard() {
     }
   };
 
+  for (let k = 0; k <= getuserdata.length; k++) {
+    if (k % 2 === 0) {
+      list1.push(getuserdata[k]);
+    } else {
+      list2.push(getuserdata[k]);
+    }
+  }
+
+  function getUnique(array) {
+    var uniqueArray = [];
+
+    for (let i = 0; i < array.length; i++) {
+      if (uniqueArray.indexOf(array[i]) === -1) {
+        uniqueArray.push(array[i]);
+      }
+    }
+    return uniqueArray;
+  }
+  var newArr = getUnique(list1);
+  newArr.shift();
+  newArr.pop();
+  function getUniquenum(arr) {
+    var uniqueArray2 = [];
+
+    for (let i = 0; i < arr.length; i++) {
+      if (uniqueArray2.indexOf(arr[i]) === -1) {
+        uniqueArray2.push(arr[i]);
+      }
+    }
+    return uniqueArray2;
+  }
+  var newArr2 = getUniquenum(list2);
+
+  console.log("lllll", newArr);
+  console.log("kkkkk", newArr2);
+
   return (
     <>
       <div className="card note1">
@@ -78,7 +141,8 @@ function Dashboard() {
         <div className="details">
           <div className="card">
             <div className="card-header">
-              <h5>Resources Billing Details</h5>
+              <h5>Resources Billing Details</h5>{" "}
+             
             </div>
             <div>
               <h6 className="billingnote"> Weekly Billing Details</h6>
@@ -135,114 +199,28 @@ function Dashboard() {
           <div class="card-header">
             <strong>Recent Resources</strong>
           </div>
-          <div class="card-body">
-            <Row classNameName="rowcontent">
+          {newArr.map((getdata, index) => (
+            <Row>
               <Col>
-                <div className="flip-card">
-                  <div className="flip-card-inner">
-                    <div className="flip-card-front">
-                      <h5>{getuserdata[0]}</h5>
-                    </div>
-                    <div className="flip-card-back">
-                      <h5>
-                        {"₹ " +
-                          parseFloat(getuserdata[1]).toFixed(3).toString()}
-                      </h5>
-                    </div>
-                  </div>
-                </div>
-              </Col>
-              <Col>
-                <div className="flip-card">
-                  <div className="flip-card-inner">
-                    <div className="flip-card-front">
-                      <h5>{getuserdata[2]}</h5>
-                    </div>
-                    <div className="flip-card-back">
-                      <h5>
-                        {"₹ " +
-                          parseFloat(getuserdata[3]).toFixed(3).toString()}
-                      </h5>
-                    </div>
-                  </div>
-                </div>
-              </Col>
-              <Col>
-                <div className="flip-card">
-                  <div className="flip-card-inner">
-                    <div className="flip-card-front">
-                      <h5>{getuserdata[4]}</h5>
-                    </div>
-                    <div className="flip-card-back">
-                      <h5>
-                        {"₹ " +
-                          parseFloat(getuserdata[5]).toFixed(3).toString()}
-                      </h5>
+                <div class="card-body">
+                  <div className="flip-card">
+                    <div className="flip-card-inner">
+                      <div className="flip-card-front">
+                        <h5>{getdata}</h5>
+                      </div>
+
+                      <div className="flip-card-back">
+                        <h5>
+                          {"₹ " +
+                            parseFloat(newArr2[index]).toFixed(3).toString()}
+                        </h5>
+                      </div>
                     </div>
                   </div>
                 </div>
               </Col>
             </Row>
-            <Row classNameName="rowcontent">
-              <Col>
-                <div className="flip-card">
-                  <div className="flip-card-inner">
-                    <div className="flip-card-front">
-                      <h5>{getuserdata[6]}</h5>
-                    </div>
-                    <div className="flip-card-back">
-                      <h5>
-                        {"₹ " +
-                          parseFloat(getuserdata[7]).toFixed(3).toString()}
-                      </h5>
-                    </div>
-                  </div>
-                </div>
-              </Col>
-              <Col>
-                <div className="flip-card">
-                  <div className="flip-card-inner">
-                    <div className="flip-card-front">
-                      <h5>{getuserdata[8]}</h5>
-                    </div>
-                    <div className="flip-card-back">
-                      <h5>
-                        {"₹ " +
-                          parseFloat(getuserdata[9]).toFixed(3).toString()}
-                      </h5>
-                    </div>
-                  </div>
-                </div>
-              </Col>
-              <Col>
-                <div className="flip-card">
-                  <div className="flip-card-inner">
-                    <div className="flip-card-front">
-                      <h5>{getuserdata[10]}</h5>
-                    </div>
-                    <div className="flip-card-back">
-                      <h5>
-                        {"₹ " +
-                          parseFloat(getuserdata[11]).toFixed(3).toString()}
-                      </h5>
-                    </div>
-                  </div>
-                </div>
-              </Col>
-            </Row>
-            <div className="flip-card">
-              <div className="flip-card-inner">
-                <div className="flip-card-front">
-                  <h5>{getuserdata[12]}</h5>
-                </div>
-                <div className="flip-card-back">
-                  <h5>
-                    {"₹ " + parseFloat(getuserdata[13]).toFixed(3).toString()}
-                  </h5>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 
@@ -348,6 +326,8 @@ function Dashboard() {
           </div>
         </div>
       </div>
+     
+
     </>
   );
 }

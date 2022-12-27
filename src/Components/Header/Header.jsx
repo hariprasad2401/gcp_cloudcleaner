@@ -23,7 +23,12 @@ export default function Header() {
   const [file, setFile] = useState();
 
   const navigate = useNavigate();
-  
+   
+function headerLogoHandler(){
+  navigate("/AllFilesHandler/Dashboard")
+}
+
+
   function handlelogout() {
     navigate("/");
   }
@@ -31,15 +36,19 @@ export default function Header() {
     <div>
       <nav className="navbar navbar-expand-lg  bg-transperent">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+        <div>
             <img
               src={logo}
               alt="Logo"
               width="150"
               height="25"
-              className="d-inline-block align-text-top  "
+              className="d-inline-block align-text-top"
+              onClick={headerLogoHandler}
+              
+        
             />
-          </a>
+         
+        </div>
           <button
             className="navbar-toggler"
             type="button"

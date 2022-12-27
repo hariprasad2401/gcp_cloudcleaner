@@ -211,7 +211,7 @@ function Bucket() {
         </div>
         <br />
         <div className="card note2">
-          <p>* Ensure the bucket is empty before deleting</p>
+          <p>* Only empty bucket can be deleted</p>
         </div>
       </React.Fragment>
     </>
